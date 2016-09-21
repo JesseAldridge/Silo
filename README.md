@@ -1,7 +1,13 @@
-`sudo apt-get install git`
-`git clone https://github.com/JesseAldridge/logrot`
+```
+sudo apt-get install git
+git clone https://github.com/JesseAldridge/logrot
 
-`python logrot/example_process.py 2>&1 | python logrot/logrot.py &`
+# run the example
+python logrot/example_process.py 2>&1 | python logrot/logrot.py &
+
+# note that the most recent data is written here:
+tail ~/logrot_out.txt
+```
 
 So you want to stick a script on a remote machine and leave it running forever?  
 Cool.  But what happens if it crashes?  How will you know what went wrong?  
