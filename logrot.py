@@ -1,8 +1,7 @@
-import os, shutil
+import os, shutil, sys
 from datetime import datetime
 
-
-out_path = os.path.expanduser('~/logrot_out.txt')
+out_path = os.path.expanduser(' '.join(sys.argv[1:]))
 
 def write_rotate(line):
   with open(out_path, 'a') as f:
@@ -12,10 +11,14 @@ def write_rotate(line):
   if os.path.getsize(out_path) > 1024 ** 2:
     shutil.move(out_path, out_path + '.old')
 
-write_rotate('---begin logrot piped output---')
-while True:
-  try:
-    write_rotate(raw_input())
-  except EOFError:
-    break
-write_rotate('---end logrot piped output---')
+def read_forever():
+  write_rotate('---begin logrot piped output---')
+  while True:
+    try:
+      write_rotate(raw_input())
+    except EOFError:
+      break
+  write_rotate('---end logrot piped output---')
+
+if __name__ == '__main__':
+  read_forever()

@@ -3,10 +3,13 @@ sudo apt-get install git
 git clone https://github.com/JesseAldridge/logrot
 
 # run the example
-python logrot/example_process.py 2>&1 | python logrot/logrot.py &
+python logrot/example_process.py 2>&1 | python logrot/logrot.py ~/logrot.txt &
 
-# note that the most recent data is written here:
 tail ~/logrot_out.txt
+
+# find the process and kill it
+ps aux | grep logrot
+kill <pid>
 ```
 
 So you want to stick a script on a remote machine and leave it running forever?  
