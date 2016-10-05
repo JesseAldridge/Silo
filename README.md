@@ -18,4 +18,4 @@ Maybe you should just redirect stderr and stdout to a file?
 Ok, cool.  But wait, this log file is just going to keep growing forever and will eventually fill
 up the entire hard-drive.  
 This is where logrot comes in.  Just pipe your output to it as shown above and your output will
-be written to `~/logrot_out.txt`.  Only the most recent 1 MB of output data will be retained.
+be written to `~/logrot_out.txt`.  Only the most recent 10 MB of output data will be retained.
