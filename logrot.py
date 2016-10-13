@@ -1,4 +1,4 @@
-import os, shutil, sys
+import os, shutil, sys, traceback
 from datetime import datetime
 
 
@@ -25,4 +25,9 @@ def read_forever():
   write_rotate_('---end logrot piped output---')
 
 if __name__ == '__main__':
-  read_forever()
+  try:
+    read_forever()
+  except:
+    with open('logrot.err', 'a') as f:
+      f.write('logrot exception\n')
+      traceback.print_exc()
