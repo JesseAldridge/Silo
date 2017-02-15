@@ -17,12 +17,14 @@ def read_forever():
     write_rotate(out_path, line)
 
   write_rotate_('---begin logrot piped output---')
-  while True:
-    try:
-      write_rotate_(raw_input())
-    except EOFError:
-      break
-  write_rotate_('---end logrot piped output---')
+  try:
+    while True:
+      try:
+        write_rotate_(raw_input())
+      except EOFError:
+        break
+  finally:
+    write_rotate_('---end logrot piped output---')
 
 if __name__ == '__main__':
   try:
