@@ -3,7 +3,7 @@ sudo apt-get install git
 git clone https://github.com/JesseAldridge/logrot
 
 # run the example
-python logrot/example_process.py 2>&1 | python logrot/logrot.py ~/logrot.txt &
+python -u logrot/example_process.py 2>&1 | python -u logrot/logrot.py ~/logrot.txt &
 
 tail ~/logrot_out.txt
 
