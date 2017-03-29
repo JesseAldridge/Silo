@@ -32,4 +32,4 @@ if __name__ == '__main__':
   except:
     with open('logrot.err', 'a') as f:
       f.write('logrot exception\n')
-      traceback.print_exc()
+      f.write(traceback.format_exc())
